@@ -6,11 +6,11 @@
  {  
       if(empty($_POST["loginName"]))  
       {  
-           $error = "<label class='text-danger'>Enter User Name</label>";  
+           $error = "<center><label class='text-danger'>Enter User Name</label></center>";  
       }  
       else if(empty($_POST["pass"]))  
       {  
-           $error = "<label class='text-danger'>Enter Password</label>";  
+           $error = "<center><label class='text-danger'>Enter Password</label></center>";  
       }   
       else  
       {  
@@ -20,7 +20,7 @@
                 $array_data = json_decode($current_data, true);
                 foreach ($array_data as $key => $entry) {
 			    	    if ($entry['User'] == $_POST["loginName"]) {
-			    		   $error = "<label class='text-danger'>This user name is already registered!</label>";
+			    		   $error = "<center><label class='text-danger'>This user name is already registered!</label></center>";
 			    		   $repeat = true;
 	                 	return true;      
 
@@ -37,7 +37,7 @@
 	                $final_data = json_encode($array_data);  
 	                if(file_put_contents('players.json', $final_data))  
 	                {  
-	                 	$message = "<label class='text-danger' style=\"color: green;\">User registration successful!!</label>"; 
+	                 	$message = "<center><label class='text-danger' style=\"color: green;\">User registration successful!!</label></center>"; 
 	                 	return false;      
 	                }
 			   	} 

@@ -23,9 +23,6 @@
 
 	return $a['Score'] > $b['Score'] ? -1 : 1;
 	});
-	if (filesize("players.json") > filesize("players2.json")) {
-       copy("players.json","players2.json"); 
-    }
 
 ?>
 	<center>
@@ -58,6 +55,19 @@
 			</tbody>
 		</table>
 	</div>
+	<div class="messageLogin">
+		<?php
+		if (isset($_SESSION['user_name'])) {
+			?><center>
+			  <button style="margin-top: 1%;"><a href="logout.php">Logout</a></button>
+			  <p>Player: <?php echo $_SESSION['user_name'] ?> </p>
+			  </center>
+			<?php
+		}else{
+			?><p>Login <a class="messageLink" href="index.php" style="font-weight: bold;">here</a> to submit your scores<br> and check the leaderboard!</p><?php
+		}
+		?>
+	</div>	
 	</center>
 
 <?php
@@ -69,6 +79,19 @@
 		<h3>&#8636;&nbsp;&nbsp;Best Scores&nbsp;&nbsp;&#8640;</h3>
 		<p></p>
 	</div>
+	<div class="messageLogin">
+		<?php
+		if (isset($_SESSION['user_name'])) {
+			?><center>
+			  <button style="margin-top: 1%;"><a href="logout.php">Logout</a></button>
+			  <p>Player: <?php echo $_SESSION['user_name'] ?> </p>
+			  </center>
+			<?php
+		}else{
+			?><p>Login <a class="messageLink" href="index.php" style="font-weight: bold;">here</a> to submit your scores<br> and check the leaderboard!</p><?php
+		}
+		?>
+	</div>	
 	</center>
 <?php
 	}

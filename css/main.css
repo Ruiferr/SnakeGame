@@ -1,0 +1,449 @@
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+	/* ^ RESET ^ */	
+
+
+	/* INDEX.PHP */	
+
+		.login p{
+			font-family: arial;
+			margin: 1%;
+			font-size: 1vw;
+		}
+
+		.login form{
+			margin-top: 7vh;
+		}
+
+		.login h1{
+			font-family: arial;
+		    color: cadetblue;
+			font-size: 40px;
+		    font-weight: bold;
+		    margin-top: 8vh;
+		}
+
+		.login input{
+			width: 15%;
+		}
+		
+		.login button {
+		  border-radius: 4px;
+		  background-color: cadetblue;
+		  border: none;
+		  text-align: center;
+		  font-size: 15px;
+		  transition: all 0.5s;
+		  cursor: pointer;
+		  margin: 5px;
+    	  margin-bottom: 1%;
+		}
+
+		.login button span {
+		  cursor: pointer;
+		  display: inline-block;
+		  position: relative;
+		  color: aliceblue;
+		  transition: 0.5s;
+		}
+
+		.login button span:after {
+		  content: '\00bb';
+		  position: absolute;
+		  opacity: 0;
+		  top: 0;
+		  right: -20px;
+		  transition: 0.5s;
+		}
+
+		.login button:hover span {
+		  padding-right: 25px;
+		}
+
+		.login button:hover span:after {
+		  opacity: 1;
+		  right: 0;
+		}
+
+		.text-danger{
+		    color: #de4242;
+		    font-weight: bold;
+		    font-family: arial;
+	    	background: rgba(117, 117, 117, 0.12);
+	    	font-size: 15px;
+		}
+
+		.skip{
+			background: cadetblue;
+			color: aliceblue;
+    		padding: 0.3%;
+		    bottom: 0;
+		    position: fixed;
+		    width: 100%;
+		}
+		
+		.skip a{
+			color: darkred;
+		}
+
+		.skip a:hover{
+			color: lightblue;
+			cursor: pointer;
+		}
+
+		.skip h2{
+			font-size: 21px;
+		    font-weight: bold;
+		    margin-top: 2vh;
+		}
+
+		.skip p{
+			margin-top: 2vw;
+    		font-size: 15px;
+ 			margin-bottom: 2vw;
+		}
+
+		.skip span{
+			color: darkred;
+			font-size: 15px;
+			font-weight: bold;
+		}
+
+		.skip ul{
+			width: 100%;
+		}
+
+		.version{
+			font-size: 12px;
+		    bottom: 0;
+		    position: fixed;
+		    color: whitesmoke;
+		}
+
+
+
+	/* SNAKE.PHP */		
+
+@media screen and (min-width: 1024px) and (max-width:3024px) {
+		body{
+			background: whitesmoke;
+		}
+
+		.game{
+			text-align: center;
+		}
+
+		canvas{
+			border: 1px solid black;
+			display: inline;
+		}
+		
+		.gameWrapper{
+			height: 100vh;
+		}
+
+		.gameWrapper h1{
+			font-family: arial;
+		    color: cadetblue;
+			font-size: 4vw;
+		    font-weight: bold;
+			margin-bottom: 3vh;
+		}
+
+		.gameWrapper h2{
+			font-family: 'Rationale', sans-serif;
+			width: 20%;
+			font-size: 23px;
+		}
+
+		.gameWrapper h3{
+			font-family: 'Rationale', sans-serif;
+		    font-size: 28px;
+		    color: #ab0202;
+		    margin-top: 5%;
+		}
+
+		#start{
+			width: 100%;
+		}
+		
+		#points{
+    		color: cadetblue;
+			font-weight: bold;
+		}
+
+		#maxPoints{
+			color: darkred;
+		}
+
+		.arrows{
+    		width: 60%;
+		}
+
+		.control{
+			float: left;
+			height: 100px;
+			width: 33%;
+		}
+
+		.control:nth-child(even){
+			width: 33%;
+		    font-size: 30px;
+		    border-radius: 10px;
+		    background: lightgrey;
+		    font-weight: bold;
+		    float: left;
+		}
+
+		.gameWrapper a{
+			font-family: 'Rationale', sans-serif;
+			text-decoration: none;
+			color: darkcyan;
+			font-size: 25px;
+		}
+
+		.gameWrapper a:hover{
+			color: lightslategray;;
+		}
+
+		.gameWrapper ul{
+			list-style-type: none;
+			width: 10%;
+		}
+
+		.gameWrapper li{
+			text-align: left;
+		}
+
+		.instructions{
+			width: 5%;
+		}
+
+		.layer{
+			width: 100%;
+	    	background: rgba(0, 0, 0, 0.53);
+	    	height: 100vh;
+	    	position: absolute;
+	    	top: 0;
+		}
+
+		.rank table {
+			margin-left: -3%;
+		}
+
+
+		.special{
+			background-color: whitesmoke;
+			color: black;
+		}
+		
+		.gamelvl{
+			display: block;
+		    width: 33%;
+		    margin-left: 33%;
+		    margin-top: 15vh;
+		    z-index: 99;
+		    position: absolute;
+		    top: 0;
+		    background: rgba(216, 216, 216, 0.92);
+		   	border-radius: 15px;
+		}
+
+		.gamelvl p{
+			font-family: 'Rationale', sans-serif;
+		    text-align: center;
+		    font-weight: bold;
+		    font-size: 2.5vw;
+		    margin-top: 12vh;
+
+
+		}
+
+		.gamelvl button{
+		    width: 40%;
+		    margin: 5% 0 0 30%;
+		    float: left;
+		    background: rgba(4, 4, 4, 0.49);
+		    height: 7vh;
+			font-size: 0.75vw;
+    		font-weight: bold;
+		    color: white;
+
+		}
+
+		.gamelvl .hardDif{
+			margin-bottom: 12vh;
+		}
+
+		.mobileControls{
+			display: none;
+		}
+
+		.messageLogin{
+			font-size: 2vw;
+		    width: 50%;
+		    margin-top: 5vh;
+		    text-align: center;
+		    font-family: 'Rationale', sans-serif;
+		    background: #505050;
+		    color: white;
+		}
+
+		th, td {
+		    padding: 15px;
+		    font-family: arial;
+		    font-size: 25px;
+		}
+
+		td:nth-child(even){
+			font-weight: bold;
+		}
+
+		tr:nth-child(2){
+		    color: white;
+		    background: cadetblue;
+		}
+		tr:nth-child(3){
+		    color: white;
+		    background: rgba(114, 157, 158, 0.67);
+		}
+		tr:nth-child(4){
+		    color: white;
+		    background: rgba(161, 172, 173, 0.59);
+		}
+		tr{
+			color: rgba(0, 0, 0, 0.52);
+		}
+
+		th{
+			font-family: 'Rationale', sans-serif;
+			background-color: whitesmoke;
+			color: black;
+    		text-align: left;
+		}
+
+}
+
+	/* CREATEACC.PHP */
+
+
+		.accountWrapper p{
+			font-family: arial;
+			margin: 1%;
+		}
+
+		.accountWrapper  form{
+			margin-top: 5%;
+		}
+		
+		.accountWrapper h1{
+			font-family: arial;
+    		color: cadetblue;
+    		font-size: 40px;
+		}
+		
+		.messageAccount{
+			background: cadetblue;
+			color: aliceblue;
+    		padding: 0.3%;
+		    height: 15vh;
+		    margin-top: 1%;
+		    text-align: center;
+		}
+
+		.messageAccount a{
+			color: #304f56;
+			font-size: 17px;
+    		font-weight: bold;
+		}
+
+		.messageAccount h4{
+			margin-top: 5vh;
+		}
+
+
+		.messageAccount a:hover{
+			color: lightblue;
+			cursor: pointer;
+		}
+		
+		.accountWrapper button{
+			cursor: pointer;
+			margin-bottom: 1%;
+    		padding: 0.5%;
+		}
+
+		.accountWrapper label{
+			color: red;
+		}
+
+		.version2{
+			font-size: 10px;
+		}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

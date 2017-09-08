@@ -1,3 +1,12 @@
+$(document).ready(function () {
+
+    if (!$(".gamelvl").is(':visible')) {
+        $(".layer").hide();
+    }
+
+});
+
+
 function easy(){
     var mode = localStorage.getItem('mode') || '';
     localStorage.setItem('mode','easy');
@@ -19,6 +28,17 @@ function hard(){
 window.onload=function() {
     canv=document.getElementById("panel");
     ctx=canv.getContext("2d");
+
+
+
+    if ($(window).width() > 750) {
+        canv.width = 400;
+        canv.height = 400;
+    }else{
+        canv.width = Math.pow(Math.floor(Math.sqrt($(window).width())), 2);
+        canv.height = Math.pow(Math.floor(Math.sqrt($(window).width())), 2);
+    }
+
     document.addEventListener("keydown",keyPush);
     var mode = localStorage.getItem('mode') || '';
     if (mode == "easy") {
@@ -34,29 +54,38 @@ window.onload=function() {
 
         $('#info').hide();
         $('#info2').hide();
-        document.getElementById("mode").innerHTML = "";
-        document.getElementById("mode").style.background = "whitesmoke";
+        $('.gamelvl').hide();
+        $(".layer").hide();
+
+
+
 
     }
     var started = localStorage.getItem('started') || '';
     if (started == "yes") {
         $("#info").hide();
-
     }
 
     var alerted = localStorage.getItem('alerted') || 'yes';
     localStorage.setItem('alerted','no');
 }
 
+
 px=py=10;
-gs=tc=20;
+
+if ($(window).width() > 1024)
+    gs=tc=20;  
+else
+    gs=tc=Math.floor(Math.sqrt( $(window).width() ) );
+
 ax=ay=15;
 xv=yv=0;
 trail=[];
-tail = 5;
+tail =5;
 pts = 0;
 maxPt = 0;
 lastPressed = 0;
+
 
 function game() {
     var mode = localStorage.getItem('mode') || '';
@@ -132,8 +161,11 @@ function keyPush(evt) {
             xv=-1;yv=0;
             $('#info').hide();
             $('#info2').hide();
-            document.getElementById("mode").innerHTML = "";
-            document.getElementById("mode").style.background = "whitesmoke";
+            $('.gamelvl').hide();
+            $(".layer").hide();
+            $(".messageLogin").hide();
+
+
             lastPressed = 37;
             }
             break;
@@ -144,8 +176,11 @@ function keyPush(evt) {
             xv=0;yv=-1;
             $('#info').hide();
             $('#info2').hide();
-            document.getElementById("mode").innerHTML = "";
-            document.getElementById("mode").style.background = "whitesmoke";
+            $('.gamelvl').hide();
+            $(".layer").hide();
+            $(".messageLogin").hide();
+
+
             lastPressed = 38;
             }
             break;
@@ -156,8 +191,11 @@ function keyPush(evt) {
             xv=1;yv=0;
             $('#info').hide();
             $('#info2').hide();
-            document.getElementById("mode").innerHTML = "";
-            document.getElementById("mode").style.background = "whitesmoke";
+            $('.gamelvl').hide();
+            $(".layer").hide();
+            $(".messageLogin").hide();
+
+
             lastPressed = 39;
             }
             break;
@@ -168,8 +206,74 @@ function keyPush(evt) {
             xv=0;yv=1;
             $('#info').hide();
             $('#info2').hide();
-            document.getElementById("mode").innerHTML = "";
-            document.getElementById("mode").style.background = "whitesmoke";
+            $('.gamelvl').hide();
+            $(".layer").hide();
+            $(".messageLogin").hide();
+
+
+            lastPressed = 40;
+            }
+            break;
+    }
+}
+
+
+function keyPushMobile(evt) {
+
+    switch(evt) {
+        case 37:
+            if (lastPressed == 39) {
+
+            }else{
+            xv=-1;yv=0;
+            $('#info').hide();
+            $('#info2').hide();
+            $('.gamelvl').hide();
+            $(".layer").hide();
+            $(".messageLogin").hide();
+
+            lastPressed = 37;
+            }
+            break;
+        case 38:
+            if (lastPressed == 40) {
+
+            }else{
+            xv=0;yv=-1;
+            $('#info').hide();
+            $('#info2').hide();
+            $('.gamelvl').hide();
+            $(".layer").hide();
+            $(".messageLogin").hide();
+
+            lastPressed = 38;
+            }
+            break;
+        case 39:
+            if (lastPressed == 37) {
+
+            }else{
+            xv=1;yv=0;
+            $('#info').hide();
+            $('#info2').hide();
+            $('.gamelvl').hide();
+            $(".layer").hide();
+            $(".messageLogin").hide();
+
+            lastPressed = 39;
+            }
+            break;
+        case 40:
+            if (lastPressed == 38) {
+
+            }else{
+            xv=0;yv=1;
+            $('#info').hide();
+            $('#info2').hide();
+            $('.gamelvl').hide();
+            $(".layer").hide();
+            $(".messageLogin").hide();
+            
             lastPressed = 40;
             }
             break;
@@ -180,7 +284,8 @@ function scoreUpdate(value) {
     var maxScore = value;
     $.post('updateScore.php',{val: maxScore},function(data) {
         $('.game').html(data);
-        $('h2').html('');
+        $('h2').empty();
+        $('.mobileControls').empty();
         var alerted = localStorage.getItem('alerted') || '';
         if (alerted != 'yes') {
             alert('Game Over!\nYour Score: '+maxScore);
